@@ -1,0 +1,21 @@
+{
+  "name": "hroa",
+  "version": "1.0.0",
+  "description": "",
+  "main": "/src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "parcel index.html --no-cache"
+  },
+  "author": "Rishav",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.7.0",
+    "parcel": "^1.8.1"
+  },
+  "dependencies": {
+    "mithril": "^1.1.6",
+    "nprogress": "^0.2.0"
+  }
+}
