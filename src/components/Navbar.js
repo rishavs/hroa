@@ -12,6 +12,10 @@ export default {
                         Digglu
         			</a>
                     <div class="item">
+                        <a href="/register" oncreate={m.route.link}>Register</a>
+                    </div>
+
+                    <div class="item">
                         <a href="/login" class="ui blue button" oncreate={m.route.link}>Login</a>
                     </div>
 				</div>

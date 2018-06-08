@@ -1,13 +1,25 @@
 const m = require("mithril")
+import Backend from "./../services/Backend.js";
 
 const Login = {
     state: {
 
     },
     actions: {
-        submit_form: () => {
+        submit_form: async () => {
             console.log(document.getElementById("username").value)
             console.log(document.getElementById("password").value)
+            try {
+                let auth_token = await Backend.login(
+                    document.getElementById("username").value, 
+                    document.getElementById("password").value
+                )                
+                console.log("User logged in successfully with token:")
+                console.log(auth_token)
+            } catch (err) {
+                console.log('Error getting documents', err)
+            }
+
             return false
         }
     },
@@ -20,11 +32,11 @@ const Login = {
             <form class="ui form" onsubmit={vnode.state.actions.submit_form}>
                 <div class="field">
                     <label>User Name</label>
-                    <input type="text" id="username" placeholder="First Name" />
+                    <input type="text" id="username" placeholder="User Name" />
                 </div>
                 <div class="field">
                     <label>Password</label>
-                    <input type="text" id="password" placeholder="Last Name" />
+                    <input type="text" id="password" placeholder="Password" />
                 </div>
                 <div class="field">
                     <div class="ui checkbox">
