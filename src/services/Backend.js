@@ -1,21 +1,18 @@
 const Backend = {
-    register_user: async (uname, email, name, pass) => {
+    register_user: async (uname, pass) => {
         const payload = {
             "username": uname,
-            "email": email,
-            "name": name,
             "password": pass
           }
         const options = {
             method: 'POST',
             headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json',
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify(payload)
         };
         try {
-            const response = await fetch(`http://localhost:3000/users/`, options)
+            const response = await fetch(`http://localhost:3000/api/users/`, options)
             const json = await response.json();
             console.log(json)
             return json
@@ -25,7 +22,6 @@ const Backend = {
     },
     login: async (uname, pass) => {
         const payload = {
-            "strategy": "local",
             "username": uname,
             "password": pass
           }
@@ -38,7 +34,7 @@ const Backend = {
             body: JSON.stringify(payload)
         };
         try {
-            const response = await fetch(`http://localhost:3000/authentication/`, options)
+            const response = await fetch(`http://localhost:3000/api/auth/`, options)
             const json = await response.json();
             console.log(json)
             return json
