@@ -7,7 +7,9 @@ import About from './pages/About'
 import Login from './pages/Login'
 import Register from './pages/Register'
 import NotFound404 from './pages/NotFound404'
+import NProgress from 'nprogress'
 
+NProgress.configure({ showSpinner: false });
 
 m.route.prefix('#')
 

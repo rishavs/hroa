@@ -6,7 +6,7 @@ import Navbar from './Navbar'
 const Layout = {
     view: (vnode) =>  {
         return (
-        	<main>
+        	<main id="content">
             	<Navbar />
 
                 {vnode.children}

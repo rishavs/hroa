@@ -1,5 +1,7 @@
 const m = require("mithril")
 import Backend from "./../services/Backend.js";
+import 'nprogress/nprogress.css'
+import NProgress from 'nprogress'
 
 $(document).ready(function () {
     $('.ui.form').form({
@@ -33,7 +35,8 @@ const Login = {
         }
     },
     oninit: () => {
-
+        NProgress.start();
+        NProgress.done();
     },
     view: (vnode) =>
 
