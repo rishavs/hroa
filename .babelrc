@@ -1,12 +1,9 @@
 {
     "presets": ["env"],
     "plugins": [
-        ["transform-react-jsx", {
+        ["@babel/plugin-transform-react-jsx", {
             "pragma": "m"
         }],
-        ["transform-runtime", {
-            "polyfill": false,
-            "regenerator": true
-        }]
+        ["@babel/plugin-transform-runtime"]
     ]
 }
