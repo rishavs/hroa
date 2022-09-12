@@ -102,4 +102,6 @@ typings/
 # TernJS port file
 .tern-port
 
+# Cloudflare Workers/Pages
 dist/_worker.js
+.dev.vars
