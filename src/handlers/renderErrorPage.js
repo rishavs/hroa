@@ -1,4 +1,4 @@
-import {renderLayout} from "../views copy/renderLayout.js"
+import {renderLayout} from "../views/renderLayout.js"
 
 export const renderErrorPage = async (ctx, e) => {
     var props = {
@@ -15,7 +15,5 @@ export const renderErrorPage = async (ctx, e) => {
         ctx.res.body = `Server Error: ${e}`
         ctx.res.options = {status: 500}
     }
-    const view = renderLayout(props)
-    ctx.res.body = view
-    return ctx
+    ctx.res.body = renderLayout(props)
 }

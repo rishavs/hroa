@@ -1,15 +1,27 @@
-import {renderLayout} from "../views copy/renderLayout.js"
+import {renderLayout} from "../views/renderLayout.js"
+import {fetchAllPosts} from "../database.js"
 // import {postsList} from "./../views/pages/postsList.js"
 
-export const renderHomePage = async ({res}) => {
+export const renderHomePage = async ({res, env}) => {
 
-    var props = {
+    const { data, error } = await fetchAllPosts(env)
+    if (error) throw error
+
+    let postsList = ""
+    data.forEach(item => 
+        postsList += `<li><a href="/posts/${item.id}">${item.title}</a></li>\n`)
+
+    let renderPageContent = async () => /*html*/`
+        <article class="min-h-screen">
+            <h1> HOME PAGE</h1>
+            <ol> ${postsList} </ol>
+        </article>
+    `
+    const props = {
         title: "Posts List",
         description: "This here is the description of the post list page",
-        page : `<h1> HOME </h1>`
-        // page : await postsList()
+        page : await renderPageContent()
     }
 
-    const view = renderLayout(props)
-    res.body = view
+    res.body = renderLayout(props)
 }

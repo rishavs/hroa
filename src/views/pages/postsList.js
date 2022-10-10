@@ -16,5 +16,6 @@ export const postsList = async () => {
                 ${content}
             </ol>
         </article>
+
     ` 
 }

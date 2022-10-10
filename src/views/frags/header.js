@@ -1,4 +1,5 @@
 export const Header = () => /*html*/ `
+
     <nav class="navbar bg-primary px-16">
         <div class="navbar-start">
             <button class="btn btn-square btn-ghost">
@@ -15,6 +16,7 @@ export const Header = () => /*html*/ `
             </div>
         </div>
         <div class="navbar-end">
+            <a id="googleBtn" class="btn">Google Login</a>
             <label for="loginModal" class="btn modal-button bg-secondary">Login</label>
             <div class="dropdown dropdown-end mx-2">
                 <label tabindex="0" class="btn btn-ghost btn-circle avatar">

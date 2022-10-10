@@ -23,9 +23,9 @@ export const renderLayout = (data) => /*html*/`
             <script src="https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js"></script>
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js@latest/pace-theme-default.min.css">
 
-            <script src="https://apis.google.com/js/platform.js" async defer></script>
+            <script src="https://unpkg.com/@supabase/supabase-js"></script>
         </head>
-        <body class="md:mx-8">
+        <body class="">
             ${Header()}
             ${FiltersBar()}
             ${data.page}
