@@ -75,11 +75,11 @@ export class Pika {
                 throw new Error("404", {cause:"Not all who wander are lost"})
             }
         } catch (err) {
-            console.error(err)
-            if (["401", "404", "418"].includes(err.message)) {
-                return new Response (`${err.name} ${err.message} : ${err.cause }`, {status: err.message})
+            // Sepaaretd these out as this are the general user errors and may need to be customized
+            if (["401", "404", "418"].includes(err.name)) {
+                return new Response (`${err.name} : ${err.message}\n${err.stack} }`, {status: err.name})
             } else {
-                return new Response (`Server Error - 500\n${err.stack}`, {status: 500})
+                return new Response (`Server Error - 500\n${err.message}\n${err.stack}`, {status: 500})
             }
         }
         return new Response(this.res.body, {status: 200, statusText: "OK", headers: this.res.options.headers})

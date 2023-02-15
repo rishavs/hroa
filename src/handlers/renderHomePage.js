@@ -4,12 +4,17 @@ import {fetchAllPosts} from "../database.js"
 
 export const renderHomePage = async ({res, env}) => {
 
-    const { data, error } = await fetchAllPosts(env)
-    if (error) throw error
+    const data = await fetchAllPosts(env)
+    console.log("getting data", data)
+    // if (error) throw error
 
     let postsList = ""
-    data.forEach(item => 
-        postsList += `<li><a href="/posts/${item.id}">${item.title}</a></li>\n`)
+    for (var item of data) {
+        postsList += `<li><a href="/posts/${item.id}">${item.title}</a></li>\n`
+
+    }
+    // data.forEach(item => 
+    //     postsList += `<li><a href="/posts/${item.id}">${item.title}</a></li>\n`)
 
     let renderPageContent = async () => /*html*/`
         <article class="min-h-screen">

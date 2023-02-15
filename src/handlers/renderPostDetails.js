@@ -3,8 +3,8 @@ import {fetchSpecificPostById} from "../database.js"
 
 export const renderPostDetails = async ({env, route, res}) => {
 
-    const { data, error } = await fetchSpecificPostById(env, route.resource.id)
-    if (error) throw error
+    const data = await fetchSpecificPostById(env, route.resource.id)
+    // if (error) throw error
 
     console.log(data)
 

@@ -14,11 +14,9 @@ export const renderOauthPage = async ({req, res}) => {
     <article class="min-h-screen">
         <h1> Google Auth PAGE</h1>
         <p>Redirects come here for Google Authentication</p>
-        <p> ${req} </p>
+        <p> ${req.body} </p>
     </article>
-    <script>
-        Realm.handleAuthRedirect();
-    </script>
+
 `
     const props = {
         title: "Posts List",

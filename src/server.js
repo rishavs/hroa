@@ -13,6 +13,7 @@ import {Pika} from "./pika.js"
 
 export default {
     async fetch(request, env) {
+        console.log (env)
         const pika = new Pika(request, env)
 
         pika.serveStatic("/pub")
@@ -25,8 +26,7 @@ export default {
         pika.onNotFound([initContext, setHTMLHeaders, renderHomePage])
         pika.onError([initContext, setHTMLHeaders, renderHomePage])
 
-        let response = pika.run()
-        return response
+        return pika.run()
     }
 }
 
